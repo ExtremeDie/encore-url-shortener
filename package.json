@@ -1,15 +1,21 @@
 {
-  "name": "encore-ts-starter",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Encore Typescript Starter",
-  "license": "MPL-2.0",
-  "type": "module",
-  "devDependencies": {
-    "@types/node": "^20.5.7",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "encore.dev": "^1.45.2"
-  }
+	"name": "encore-ts-starter",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Encore Typescript Starter",
+	"license": "MPL-2.0",
+	"type": "module",
+	"scripts": {
+		"test": "vitest",
+		"build": "encore build docker --config ./infra-config.json --arch arm64 url-shortener:v1.0",
+		"run": "docker run -d -e DB_PASSWORD=test -p 8080:8080 --name encore url-shortener:v1.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.5.7",
+		"typescript": "^5.2.2",
+		"vitest": "^2.1.8"
+	},
+	"dependencies": {
+		"encore.dev": "^1.45.2"
+	}
 }
